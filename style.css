@@ -1,0 +1,624 @@
+:root {
+    /* 顏色定義 */
+    --color-bg-light: #f5f5f5; /* 淺灰背景 */
+    --color-bg-dark: #222222;
+    --color-text-main: #111111;
+    --color-text-muted: #666666;
+    --color-white: #ffffff;
+    
+    /* 字體 */
+    --font-primary: 'Inter', 'Noto Sans TC', sans-serif;
+    
+    /* 佈局 */
+    --container-max-width: 1440px;
+    --padding-sides: 5%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-primary);
+}
+
+body {
+    background-color: var(--color-bg-light);
+    color: var(--color-text-main);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+}
+
+ul {
+    list-style: none;
+}
+
+/* =========================================
+   導航列 Navbar
+   ========================================= */
+.navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2.5rem var(--padding-sides);
+    z-index: 100;
+    color: var(--color-white);
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.nav-links a {
+    opacity: 0.8;
+}
+
+.nav-links a:hover {
+    opacity: 1;
+}
+
+.nav-brand {
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.btn-primary {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: var(--color-white);
+    padding: 0.6rem 1.5rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.btn-primary:hover {
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+/* =========================================
+   英雄區塊 Hero Section
+   ========================================= */
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    min-height: 800px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow: hidden;
+}
+
+.hero-car-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    object-fit: cover;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 20;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 0 var(--padding-sides) 4rem var(--padding-sides);
+    width: 100%;
+    color: var(--color-white);
+}
+
+.hero-title .subtitle {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 0.2rem;
+    letter-spacing: 2px;
+}
+
+.hero-title h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    line-height: 1.1;
+}
+
+.hero-badge {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.badge-label {
+    font-size: 1.2rem;
+    font-weight: 500;
+    letter-spacing: 4px;
+    margin-bottom: -10px;
+}
+
+.badge-number {
+    font-size: 6rem;
+    font-weight: 700;
+    line-height: 1;
+    opacity: 0.9;
+}
+
+/* =========================================
+   關於我們 About Section
+   ========================================= */
+.about-section {
+    padding: 8rem 2rem;
+    text-align: center;
+    background-color: var(--color-bg-light);
+}
+
+.about-section h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 2rem;
+}
+
+.about-subtitle {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 3rem;
+    letter-spacing: 1px;
+}
+
+.about-description {
+    max-width: 900px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    line-height: 2;
+    color: #333;
+    margin-bottom: 5rem;
+}
+
+.about-slogan {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--color-text-main);
+    letter-spacing: 1px;
+}
+
+/* =========================================
+   展示影片區塊 Video Section
+   ========================================= */
+.video-section {
+    width: 100%;
+    /* remove max-width to allow the full bleed of the video if needed */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+}
+
+.showcase-video {
+    width: 100%;
+    max-height: 80vh; /* Optional constraint so it isn't too overwhelmingly tall */
+    object-fit: cover;
+    display: block;
+}
+
+/* =========================================
+   特色網格 Feature Grid
+   ========================================= */
+.features-section {
+    padding: 8rem var(--padding-sides);
+    background-color: var(--color-bg-light);
+    display: flex;
+    justify-content: center;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8rem 8rem; /* 水平間距保持足夠寬 */
+    justify-items: start; /* 改為 start 確保 01-02, 03-04 垂直對齊左側 */
+    max-width: var(--container-max-width);
+}
+
+.feature-item {
+    display: flex;
+    align-items: baseline;
+    gap: 1.5rem;
+    transition: transform 0.3s ease, color 0.3s ease;
+    cursor: pointer; /* make it feel clickable */
+}
+
+.feature-item:hover {
+    transform: scale(1.05);
+    color: #555; /* slight color change on hover */
+}
+
+.feature-number {
+    font-size: 2.5rem;
+    font-weight: 400;
+}
+
+.feature-title {
+    font-size: 2.5rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+}
+
+/* =========================================
+   最新消息 News Section
+   ========================================= */
+.news-section {
+    display: flex;
+    align-items: center;
+    padding: 6rem var(--padding-sides) 8rem var(--padding-sides);
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    gap: 4rem;
+}
+
+.news-content {
+    flex: 1;
+}
+
+.news-content h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 4rem;
+    letter-spacing: 2px;
+}
+
+.news-content h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    letter-spacing: 1px;
+}
+
+.news-content p {
+    font-size: 1.05rem;
+    line-height: 2;
+    color: #444;
+    margin-bottom: 3rem;
+}
+
+.news-footer {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #000;
+    letter-spacing: 1px;
+}
+
+.news-image {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.news-image img {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    object-fit: cover;
+}
+
+/* =========================================
+   CTA Bar
+   ========================================= */
+.cta-bar {
+    background-color: #ededed;
+    padding: 3rem 0;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.cta-bar a {
+    padding: 0.8rem 3rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+}
+
+.btn-dark {
+    background-color: #111;
+    color: #fff;
+}
+
+.btn-dark:hover {
+    background-color: #333;
+}
+
+.btn-gray {
+    background-color: #999;
+    color: #fff;
+}
+
+.btn-gray:hover {
+    background-color: #777;
+}
+
+/* =========================================
+   頁尾 Footer
+   ========================================= */
+.footer {
+    padding: 6rem var(--padding-sides) 4rem var(--padding-sides);
+    background-color: var(--color-white);
+    border-top: 1px solid #eee;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+}
+
+.footer-brand-social {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.footer-logo {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: #999;
+    letter-spacing: 1px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.social-icon {
+    width: 32px;
+    height: 32px;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8rem;
+    color: #666;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.social-icon:hover {
+    background-color: #f5f5f5;
+    color: #111;
+}
+
+.footer-links {
+    display: flex;
+    gap: 8rem;
+}
+
+.link-column {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.link-column h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.link-column a {
+    font-size: 0.95rem;
+    color: #666;
+}
+
+.link-column a:hover {
+    color: #111;
+}
+
+/* =========================================
+   RWD 響應式設計
+   ========================================= */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+    z-index: 200;
+}
+
+.hamburger span {
+    width: 30px;
+    height: 2px;
+    background-color: var(--color-white);
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 1024px) {
+    .hamburger {
+        display: flex;
+        margin-left: auto;
+    }
+    
+    .nav-action {
+        display: none;
+    }
+    
+    .nav-links {
+        display: flex;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.95);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 3rem;
+        z-index: 150;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+        font-size: 1.5rem;
+    }
+
+    .nav-links.active {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .hamburger.active span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+    
+    .hero-title h1 {
+        font-size: 2.8rem;
+    }
+    
+    .hero-car-img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .feature-grid {
+        gap: 4rem 2rem;
+    }
+    
+    .feature-number, .feature-title {
+        font-size: 2rem;
+    }
+    
+    .news-section {
+        flex-direction: column;
+        gap: 3rem;
+    }
+    
+    .news-image {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .footer-links {
+        gap: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 1.5rem var(--padding-sides);
+    }
+
+    .hero-section {
+        min-height: 600px;
+    }
+
+    .hero-title h1 {
+        font-size: 2.2rem;
+    }
+    
+    .hero-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+        padding-bottom: 2rem;
+    }
+    
+    .feature-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        justify-items: center;
+        text-align: center;
+    }
+    
+    .feature-item {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    
+    .about-section {
+        padding: 5rem 1.5rem;
+    }
+    
+    .news-content h2 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+        gap: 3rem;
+    }
+    
+    .footer-links {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    .link-column {
+        gap: 0.8rem;
+    }
+    
+    .video-section .showcase-video {
+        max-height: 50vh;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title h1 {
+        font-size: 1.8rem;
+    }
+    
+    .about-description {
+        font-size: 1rem;
+    }
+
+    .feature-title {
+        font-size: 1.5rem;
+    }
+
+    .feature-number {
+        font-size: 1.8rem;
+    }
+    
+    .cta-bar {
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem var(--padding-sides);
+    }
+    
+    .cta-bar a {
+        width: 100%;
+        text-align: center;
+        box-sizing: border-box;
+    }
+}
